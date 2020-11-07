@@ -1,0 +1,167 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<!-- Navbar -->
+<div class="container">
+  <!-- Content -->
+  <div class="search-section">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Search form -->
+        <input class="form-control" name="userName" type="text"
+          [(ngModel)]="userName" placeholder="Search" aria-label="Search">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <a target="_blank" class="btn btn-info btn-block text-white" type="button" >Find
+          User
+        </a>
+      </div>
+      <div class="form-group col-md-6">
+        <a target="_blank" class="btn btn-info btn-block text-white" type="button" (click)='showRepos()'> Show
+          Repos
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <!-- Content -->
+  <!--Main layout-->
+  <div class="content">
+
+    <!--Grid row-->
+    <div class="row">
+
+      <!--Grid column-->
+      <div class="box">
+        <img src="{{users.avatar_url}}" alt="{{users.login}}">
+
+        <h2>{{users.login}}</h2>
+        <h4>{{users.blog}}</h4>
+        <button id="btn"><a href="{{users.html_url}}" target="_blank">More</a></button>
+      </div>
+
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-md-6 mb-4">
+        <!-- card start -->
+        <!-- Card -->
+        <div class="card">
+          <!-- Card content -->
+          <div class="card-body">
+
+            <!-- Title -->
+            <h4 class="card-title">
+              <p class="text-info"> Github User: {{users.login}}</p>
+            </h4>
+            <hr>
+            <!-- Text -->
+            <ul class=" card-text list-group list-group-flush">
+              <li class="list-group-item"> Followers: {{users.followers}}</li>
+
+              <li class="list-group-item"> Following: {{users.following}}</li>
+
+              <li class="list-group-item"> No of public repos:
+                {{users.public_repos}}</li>
+
+              <li class="list-group-item"> Joined on: {{users.created_at|date}}
+              </li>
+            </ul>
+          </div>
+          <!-- Card footer -->
+          <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+            <ul class="list-unstyled list-inline font-small">
+
+              <li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="fas fa-user-friends"></i>
+                  {{users.followers}}</a></li>
+
+              <li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="fas fa-users f0c0"></i>
+                  {{users.following}}</a></li>
+
+              <li class="list-inline-item"><a href="#" class="white-text"><i class="far fa-clock pr-1"></i>
+                  {{users.created_at|date}}</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Card -->
+        <!-- card end -->
+        <!-- CTA -->
+        <a target="_blank" href="{{users.html_url}}" class="btn btn-grey btn-md"> Checkout on Github
+          <i class="fas fa-fighter-jet"></i>
+        </a>
+      </div>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+    <hr class="my-5">
+
+    <!--Section: Main features & Quick Start-->
+    <section>
+
+      <h3 class="h3 text-center mb-5 text-info">Repositories</h3>
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+        <div class="col-md-4 card" *ngFor="let repo of repos;">
+
+          <!-- <div class="card"> -->
+          <!-- Card content -->
+          <div class="card-body ">
+            <!-- Title -->
+            <h4 class="card-title">
+              <p class="text-info"> {{repo.name}}</p>
+            </h4>
+            <hr>
+            <!-- Text -->
+            <ul class=" card-text list-group list-group-flush">
+              <li class="list-group-item"> <i class="fas fa-fingerprint"></i> Repo ID: {{repo.id}}</li>
+
+              <li class="list-group-item"> <i class="fas fa-globe-americas"></i> Repo Name: {{repo.name}}</li>
+
+              <li class="list-group-item"> <i class="fas fa-file-signature"></i> Repo Description:
+                {{repo.description}}</li>
+            </ul>
+          </div>
+
+          <!-- Card footer -->
+          <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+            <ul class="list-unstyled list-inline font-small">
+              <a target="_blank" href="{{repo.html_url}}" class="btn btn-grey btn-md"> Checkout on Github
+                <i class="fas fa-fighter-jet"></i>
+              </a>
+            </ul>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+      <!--/Grid row-->
+
+    </section>
+    <!--Section: Main features & Quick Start-->
+
+    <hr class="my-5">
+
+    <!--Section: Not enough-->
+
+
+  </div>
+</div>
+<!--Main layout-->
+
+<!--Footer-->
+<footer class="page-footer text-center font-small mt-4">
+
+  <hr class="my-4">
+  <!--Copyright-->
+  <div class="footer-copyright py-3 text-warning">
+    © 2020 |
+    <a href="#" target="_blank" class="text-white"> Charles NDAYISABA </a>
+  </div>
+  <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->

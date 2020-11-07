@@ -1,6 +1,8 @@
 export class Repos {
-  id: string;
-  name: string;
-  html_url: string;
-  description: string;
+  constructor(
+    public id: string,
+    public name: string,
+    public html_url: string,
+    public description: string
+  ) {}
 }

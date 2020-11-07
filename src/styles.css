@@ -1,21 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
-.scroll-to-top {
-    opacity: 0;
-    transition: all .2s ease-in-out;
-   }
-   .show-scrollTop {
-    opacity: 1;
-    transition: all .2s ease-in-out;
-   }
-  html,
-  body,
-  header,
-  .carousel {
-    height: 50%;
-  }
-  
+
   @media (min-width: 800px) and (max-width: 850px) {
           .navbar:not(.top-nav-collapse) {
               background: #079992!important;
