@@ -2,30 +2,20 @@
 <app-navbar></app-navbar>
 <!-- Navbar -->
 <div class="container">
+
+  <ng-progress [color]="'#fdcb6e'" [ease]="'linear'"></ng-progress>
   <!-- Content -->
-  <div class="search-section">
+  <form class="search-section">
     <div class="row">
       <div class="col-md-12">
         <!-- Search form -->
-        <input class="form-control" name="userName" type="text"
-          [(ngModel)]="userName" placeholder="Search" aria-label="Search">
+        <input class="form-control" name="userName" type="text" [(ngModel)]="userName" placeholder="Search"
+          aria-label="Search" [ngModelOptions]="{ standalone: true }" (keyup)="getUser()">
 
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <a target="_blank" class="btn btn-info btn-block text-white" type="button" >Find
-          User
-        </a>
-      </div>
-      <div class="form-group col-md-6">
-        <a target="_blank" class="btn btn-info btn-block text-white" type="button" (click)='showRepos()'> Show
-          Repos
-        </a>
-      </div>
-    </div>
 
-  </div>
+  </form>
   <!-- Content -->
   <!--Main layout-->
   <div class="content">
@@ -34,7 +24,7 @@
     <div class="row">
 
       <!--Grid column-->
-      <div class="box">
+      <div class="box col-md-6">
         <img src="{{users.avatar_url}}" alt="{{users.login}}">
 
         <h2>{{users.login}}</h2>
@@ -45,17 +35,17 @@
       <!--Grid column-->
 
       <!--Grid column-->
-      <div class="col-md-6 mb-4">
+      <div class="col-md-6">
         <!-- card start -->
         <!-- Card -->
-        <div class="card">
+        <div>
           <!-- Card content -->
-          <div class="card-body">
+          <div>
 
             <!-- Title -->
-            <h4 class="card-title">
-              <p class="text-info"> Github User: {{users.login}}</p>
-            </h4>
+            <h2 class="bg-info">
+              <p class="text-white"> {{users.name}}</p>
+            </h2>
             <hr>
             <!-- Text -->
             <ul class=" card-text list-group list-group-flush">
@@ -63,37 +53,15 @@
 
               <li class="list-group-item"> Following: {{users.following}}</li>
 
-              <li class="list-group-item"> No of public repos:
-                {{users.public_repos}}</li>
+              <li class="list-group-item">repos:{{users.public_repos}}</li>
 
-              <li class="list-group-item"> Joined on: {{users.created_at|date}}
-              </li>
-            </ul>
-          </div>
-          <!-- Card footer -->
-          <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-            <ul class="list-unstyled list-inline font-small">
-
-              <li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="fas fa-user-friends"></i>
-                  {{users.followers}}</a></li>
-
-              <li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="fas fa-users f0c0"></i>
-                  {{users.following}}</a></li>
-
-              <li class="list-inline-item"><a href="#" class="white-text"><i class="far fa-clock pr-1"></i>
-                  {{users.created_at|date}}</a></li>
+              <li class="list-group-item"> Joined on: {{users.created_at|date}}</li>
             </ul>
           </div>
         </div>
-        <!-- Card -->
-        <!-- card end -->
-        <!-- CTA -->
-        <a target="_blank" href="{{users.html_url}}" class="btn btn-grey btn-md"> Checkout on Github
-          <i class="fas fa-fighter-jet"></i>
+        <a target="_blank" href="{{users.html_url}}" class="btn btn-info"> Checkout on Github
         </a>
       </div>
-      <!--Grid column-->
-
     </div>
     <!--Grid row-->
 

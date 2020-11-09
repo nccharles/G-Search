@@ -1,30 +1,15 @@
 *{
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     font-family: sans-serif;
+}
+.container{
+ box-shadow: 2px 2px 22px rgba(0, 0,0, 0.2);
 }
 .search-section{
     margin-top: 100px;
-    /* border-radius: 80px; */
-    padding: 20px;
-    box-shadow: 2px 2px 22px rgba(0, 0,0, 0.2);
-    transition: 0.3s ease-in-out;
+    padding: 20px 0;
 }
-.box,.card {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 370px;
-    background: white;
-    padding-bottom: 10px;
-    /* border: 1px solid #079992; */
-    box-shadow: 2px 2px 22px rgba(0, 0,0, 0.2);
-    transition: 0.3s ease-in-out;
-  }
+
 .box img{
     width: 200px;
     height: 200px;

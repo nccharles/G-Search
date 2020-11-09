@@ -1,8 +1,4 @@
-import { AlertService } from './../alert.service';
-import { RequestService } from './../request.service';
 import { GithubService } from './../github.service';
-import { Repos } from './../repos';
-import { User } from './../user';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,26 +7,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  userName = 'nccharles';
-  repos: Repos;
-  users: User;
+  userName='';
+  repos: any;
+  users: any;
 
   loading = false;
-  errorMessage;
-  windowScrolled: boolean;
   constructor(
-    private githubService: GithubService,
-    private profileRequest: RequestService,
-    private alertService: AlertService
-  ) {}
-  showRepos() {
-    this.githubService.getRepos(this.userName);
-
-    this.repos = this.githubService.repo;
+    private githubService: GithubService
+  ) {
+    this.githubService.updateuserName(this.userName);
+    this.githubService.getUsers().subscribe((Profile) => {
+      this.users = Profile;
+    });
+    this.githubService.getRepos().subscribe((Profile) => {
+      this.repos = Profile;
+    });
   }
-  ngOnInit(): void {
-    this.profileRequest.getUsers(this.userName);
+  getUser() {
+    this.githubService.updateuserName(this.userName);
+    this.githubService.getUsers().subscribe((Profile) => {
+      this.users = Profile;
+    });
+    this.githubService.getRepos().subscribe((Profile) => {
+      this.repos = Profile;
+    });
+  }
 
-    this.users = this.profileRequest.user;
+  ngOnInit(): void {
+    
   }
 }
