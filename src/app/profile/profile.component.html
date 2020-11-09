@@ -2,10 +2,10 @@
 <app-navbar></app-navbar>
 <!-- Navbar -->
 <div class="container">
-
-  <ng-progress [color]="'#fdcb6e'" [ease]="'linear'"></ng-progress>
   <!-- Content -->
   <form class="search-section">
+    <ng-progress [color]="'#fdcb6e'" [spinner]="false" [ease]="'linear'" fixed="false"></ng-progress>
+    <h1 class="h1 text-center text-info animated bounce infinite">Welcome to G-Search</h1>
     <div class="row">
       <div class="col-md-12">
         <!-- Search form -->
@@ -29,7 +29,6 @@
 
         <h2>{{users.login}}</h2>
         <h4>{{users.blog}}</h4>
-        <button id="btn"><a href="{{users.html_url}}" target="_blank">More</a></button>
       </div>
 
       <!--Grid column-->
@@ -59,67 +58,41 @@
             </ul>
           </div>
         </div>
-        <a target="_blank" href="{{users.html_url}}" class="btn btn-info"> Checkout on Github
-        </a>
       </div>
     </div>
-    <!--Grid row-->
-
-    <hr class="my-5">
-
-    <!--Section: Main features & Quick Start-->
     <section>
 
-      <h3 class="h3 text-center mb-5 text-info">Repositories</h3>
+      <h4 class="h4 text-center mb-5 text-white bg-info text-uppercase">Repositories</h4>
 
       <!--Grid row-->
-      <div class="row wow fadeIn">
-        <div class="col-md-4 card" *ngFor="let repo of repos;">
+      <div class="row">
 
-          <!-- <div class="card"> -->
-          <!-- Card content -->
-          <div class="card-body ">
-            <!-- Title -->
-            <h4 class="card-title">
-              <p class="text-info"> {{repo.name}}</p>
-            </h4>
-            <hr>
-            <!-- Text -->
-            <ul class=" card-text list-group list-group-flush">
-              <li class="list-group-item"> <i class="fas fa-fingerprint"></i> Repo ID: {{repo.id}}</li>
 
-              <li class="list-group-item"> <i class="fas fa-globe-americas"></i> Repo Name: {{repo.name}}</li>
-
-              <li class="list-group-item"> <i class="fas fa-file-signature"></i> Repo Description:
-                {{repo.description}}</li>
-            </ul>
+        <div class="courses-container col-md-12" *ngFor="let repo of repos;">
+          <div class="course row">
+            <div class="course-preview col-md-5">
+              <h6>Repo</h6>
+              <h2>{{repo.name}}</h2>
+              <a target="_blank" href="{{repo.html_url}}">Checkout on Github <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="course-info col-md-7">
+              <div class="progress-container">
+                <div class="progress"></div>
+                <span class="progress-text">
+                  {{repo.created_at | date}}
+                </span>
+              </div>
+              <h6>Language</h6>
+              <h2>{{repo.language}}</h2>
+              <p>{{repo.description}}</p>
+              <button class="btn">More</button>
+            </div>
           </div>
-
-          <!-- Card footer -->
-          <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-            <ul class="list-unstyled list-inline font-small">
-              <a target="_blank" href="{{repo.html_url}}" class="btn btn-grey btn-md"> Checkout on Github
-                <i class="fas fa-fighter-jet"></i>
-              </a>
-            </ul>
-          </div>
-          <!-- </div> -->
         </div>
       </div>
-      <!--/Grid row-->
-
     </section>
-    <!--Section: Main features & Quick Start-->
-
-    <hr class="my-5">
-
-    <!--Section: Not enough-->
-
-
   </div>
 </div>
-<!--Main layout-->
-
 <!--Footer-->
 <footer class="page-footer text-center font-small mt-4">
 
